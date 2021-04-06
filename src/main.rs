@@ -18,12 +18,22 @@ impl ListNode {
 // ) -> Option<Box<ListNode>> {
 // }
 
-fn extend_list(list: ListNode, new_node: ListNode) {}
+fn push_front(current_list: ListNode, new_value: i32) -> ListNode {
+    let new_node = ListNode {
+        val: new_value,
+        next: Some(Box::new(current_list.clone())),
+    };
+    new_node
+}
 
 fn main() {
-    let list_1 = ListNode::new(8);
+    let list_1 = ListNode::new(1);
 
-    println!("{:?}", list_1);
+    let list_2 = push_front(list_1, 2);
+
+    let list_3 = push_front(list_2, 3);
+
+    println!("{:?}", list_3);
 
     // add_two_numbers(l1, l2)
 }
